@@ -7,35 +7,21 @@
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config = { darkMode: 'class' }</script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+    (function() {
+      const saved = localStorage.getItem('apex_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'light' || (!saved && !prefersDark)) {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950 transition-colors duration-200">
 
-  <!-- TOP BAR -->
-  <div class="bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 py-2 px-6 hidden sm:block relative z-20">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-6">
-        <span><strong class="text-slate-900 dark:text-slate-200">License:</strong> #CON-88492-X</span>
-        <span><strong class="text-slate-900 dark:text-slate-200">Safety Rating:</strong> ISO 4501 Certified</span>
-        <span>Direct Line: <strong class="text-amber-600 dark:text-amber-400">+1 (800) 555-0199</strong></span>
-      </div>
-      <div class="flex items-center space-x-4">
-        <span class="text-slate-400 text-[11px] uppercase tracking-wider">Follow:</span>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-amber-500 transition">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-amber-500 transition">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-amber-500 transition">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-        </a>
-        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" class="hover:text-amber-500 transition">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- NAVIGATION -->
   <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -53,30 +39,56 @@
         <a href="contact.html" class="hover:text-amber-500 transition">Contact</a>
       </div>
       <div class="flex items-center space-x-4">
-        <button id="themeToggle" type="button" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-amber-500 transition">
-          <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-          <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <button id="themeToggle" type="button" aria-label="Toggle Theme" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 dark:hover:border-amber-500/50 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 transition shadow-sm">
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
         </button>
         <a href="contact.html" class="hidden sm:inline-block bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold px-5 py-2.5 rounded-lg transition shadow-md">Request Bid</a>
         
-        <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-amber-500">
+        <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-2xl border-2 border-amber-500/40 hover:border-amber-500 bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 hover:text-amber-500 dark:hover:text-amber-500 transition shadow-sm">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menuBurger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            <path id="menuClose" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            <path id="menuBurger" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path id="menuClose" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Drawer Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-6 py-6 space-y-4">
-      <a href="about.html" class="block font-semibold text-slate-800 dark:text-slate-200 hover:text-amber-500">About Us</a>
-      <a href="services.html" class="block font-semibold text-slate-800 dark:text-slate-200 hover:text-amber-500">Services</a>
-      <a href="index.html#estimator" class="block font-semibold text-slate-800 dark:text-slate-200 hover:text-amber-500">Cost Estimator</a>
-      <a href="projects.html" class="block font-semibold text-amber-500">Projects</a>
-      <a href="index.html#faq" class="block font-semibold text-slate-800 dark:text-slate-200 hover:text-amber-500">FAQ</a>
-      <a href="contact.html" class="block font-semibold text-slate-800 dark:text-slate-200 hover:text-amber-500">Contact</a>
-      <a href="contact.html" class="block text-center w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl">Request Bid</a>
+    <!-- Mobile Backdrop (Transparent click-outside catcher, no blur) -->
+    <div id="mobileMenuBackdrop" class="fixed inset-0 z-40 hidden md:hidden"></div>
+
+    <!-- Mobile Floating Popover Card -->
+    <div id="mobileMenu" class="hidden md:hidden fixed top-24 right-4 sm:right-6 w-[calc(100vw-2rem)] max-w-xs sm:max-w-sm bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-2xl z-50 transition-all duration-200">
+      
+      <!-- Search / Quick Filter Bar -->
+      <div class="relative mb-3">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <input 
+          type="text" 
+          id="mobileSearchInput" 
+          placeholder="SEARCH MENU / PAGES" 
+          class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/60 text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition"
+        >
+      </div>
+
+      <!-- Navigation Links with Pill Highlights -->
+      <div class="space-y-1 py-1" id="mobileNavItems">
+        <a href="about.html" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-amber-500 transition">About Us</a>
+        <a href="services.html" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-amber-500 transition">Services</a>
+        <a href="index.html#estimator" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-amber-500 transition">Cost Estimator</a>
+        <a href="projects.html" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider bg-amber-500/15 text-amber-500">Projects</a>
+        <a href="index.html#faq" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-amber-500 transition">FAQ</a>
+        <a href="contact.html" class="mobile-nav-link block px-4 py-2.5 rounded-2xl text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:bg-amber-500/10 hover:text-amber-500 transition">Contact</a>
+      </div>
+
+      <!-- Bottom Action Button -->
+      <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+        <a href="contact.html" class="mobile-nav-link block text-center w-full bg-amber-500 hover:bg-amber-400 active:scale-[0.98] text-slate-950 font-black text-xs uppercase tracking-widest py-3.5 px-4 rounded-2xl shadow-lg shadow-amber-500/20 transition duration-200">
+          Request Bid
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -120,7 +132,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">Nexus Financial Tower</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">34-story structural steel tower with integrated curtain walls and LEED Gold energy certification.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 380,000 sq ft</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$84M Budget</span>
           </div>
@@ -136,7 +148,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">Vanguard Logistics Hub</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Automated cold storage facility with post-tensioned floors, designed for zero thermal loss.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 250,000 sq ft</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$42M Budget</span>
           </div>
@@ -152,7 +164,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">The Horizon Ridge Villa</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Architectural hillside private residence featuring cantilevered concrete slabs and home automation.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 12,000 sq ft</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$6.5M Budget</span>
           </div>
@@ -168,7 +180,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">St. Jude Medical Pavilion</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Turnkey specialized healthcare center with redundant MEP backup power and vibration-dampened labs.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 145,000 sq ft</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$38M Budget</span>
           </div>
@@ -184,7 +196,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">Eastern Rail Viaduct</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Elevated dual-track reinforced civil concrete bridge engineered for heavy freight freight trains.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 3.4 Kilometers</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$115M Budget</span>
           </div>
@@ -200,7 +212,7 @@
         <div class="p-6">
           <h3 class="text-xl font-bold text-slate-900 dark:text-white">The Solarium Glass Estate</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">Contemporary residential architecture with floor-to-ceiling thermal glazing and geothermal cooling.</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500">
+          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Scale: 9,500 sq ft</span>
             <span class="font-mono text-slate-900 dark:text-white font-bold">$5.2M Budget</span>
           </div>
@@ -231,21 +243,26 @@
 
       <!-- Footer Social Presence -->
       <div class="flex items-center space-x-3">
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 hover:border-amber-500/50 transition">
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 hover:border-amber-500/50 transition">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 hover:border-amber-500/50 transition">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
         </a>
-        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 hover:border-amber-500/50 transition">
+        <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
       </div>
 
-      <div class="text-slate-400 dark:text-slate-500 text-xs">&copy; 2026 Plan.B Construction Group. All rights reserved.</div>
+      <div class="text-slate-400 dark:text-slate-500 text-xs text-center md:text-right space-y-1">
+        <div>&copy; 2026 Plan.B Construction Group. All rights reserved.</div>
+        <div class="text-[11px] text-slate-500 dark:text-slate-400">
+          Developed by <a href="https://pk.linkedin.com/in/hixzi" target="_blank" rel="noopener noreferrer" class="font-medium text-slate-700 dark:text-slate-300 hover:text-amber-500 dark:hover:text-amber-500 transition-colors">Muhammad Salman</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -271,15 +288,53 @@
       updateIcons(isDark);
     });
 
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobileMenuBtn'), mobileMenu = document.getElementById('mobileMenu');
-    const burger = document.getElementById('menuBurger'), close = document.getElementById('menuClose');
-    if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        mobileMenu.classList.toggle('hidden', isOpen);
-        burger.classList.toggle('hidden', !isOpen);
-        close.classList.toggle('hidden', isOpen);
+    // Mobile popover menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileBackdrop = document.getElementById('mobileMenuBackdrop');
+    const burger = document.getElementById('menuBurger');
+    const close = document.getElementById('menuClose');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileSearch = document.getElementById('mobileSearchInput');
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('hidden');
+      if (mobileBackdrop) mobileBackdrop.classList.remove('hidden');
+      burger.classList.add('hidden');
+      close.classList.remove('hidden');
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      if (mobileBackdrop) mobileBackdrop.classList.add('hidden');
+      burger.classList.remove('hidden');
+      close.classList.add('hidden');
+      if (mobileSearch) {
+        mobileSearch.value = '';
+        document.querySelectorAll('#mobileNavItems .mobile-nav-link').forEach(el => el.style.display = 'block');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) closeMobileMenu();
+      else openMobileMenu();
+    }
+
+    if (mobileBtn) mobileBtn.addEventListener('click', toggleMobileMenu);
+    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    if (mobileSearch) {
+      mobileSearch.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('#mobileNavItems .mobile-nav-link').forEach(item => {
+          const text = item.textContent.toLowerCase();
+          item.style.display = text.includes(query) ? 'block' : 'none';
+        });
       });
     }
 
@@ -290,10 +345,10 @@
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => {
           b.classList.remove('active', 'bg-amber-500', 'text-slate-950', 'font-bold', 'shadow-md');
-          b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'font-semibold');
+          b.classList.add('bg-slate-200', 'dark:bg-slate-800', 'hover:bg-slate-300', 'dark:hover:bg-slate-700', 'text-slate-700', 'dark:text-slate-300', 'font-semibold');
         });
         btn.classList.add('active', 'bg-amber-500', 'text-slate-950', 'font-bold', 'shadow-md');
-        btn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'font-semibold');
+        btn.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'hover:bg-slate-300', 'dark:hover:bg-slate-700', 'text-slate-700', 'dark:text-slate-300', 'font-semibold');
         const filter = btn.dataset.filter;
         projectCards.forEach(card => {
           card.style.display = (filter === 'all' || card.classList.contains(filter)) ? 'block' : 'none';
